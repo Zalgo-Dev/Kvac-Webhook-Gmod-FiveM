@@ -43,4 +43,4 @@ Citizen.CreateThread(function()
     end)
 end)
 
---[[By ZalgoDev]]
+--[[By ZalgoDev]]--
