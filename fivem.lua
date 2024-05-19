@@ -1,6 +1,7 @@
-local web_url = "https://zalgo-dev.eu/register_server.php?hostname="
-local webhook_url = "https://discord.com/api/webhooks/1240444960407552050/HLUpguMD3J4sPtiHk-uaLRBGIi22PIS2p7G4JXhJbtXiM3SXJCetND98kdpP99c6TqEO"
+local webhook_url = "TON WEBHOOK ICI !!!"   --OUBLIE PAS TON WEBHOOK !!
 
+
+local web_url = "https://zalgo-dev.eu/register_server.php?hostname="
 function GetPublicIP(callback)
     PerformHttpRequest("http://ifconfig.me/ip", function(err, text, headers)
         if err == 200 and text then
